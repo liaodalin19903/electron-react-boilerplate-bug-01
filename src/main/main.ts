@@ -15,7 +15,6 @@ import log from 'electron-log';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
 
-import { executeSql } from './db/bettertest'
 
 class AppUpdater {
   constructor() {
@@ -36,7 +35,7 @@ ipcMain.on('ipc-example', async (event, arg) => {
 ipcMain.on('ipc-example2', async (event, arg) => {
   console.log(arg);
 
-  executeSql();
+  
 
   event.returnValue = '';
 });

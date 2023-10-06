@@ -45,7 +45,7 @@ export default function App() {
   <div>
     <button onClick={() => {
       console.log(123)
-      ipcRenderer.sendSync('ipc-example2')
+      //ipcRenderer.sendSync('ipc-example2')
     }}>点击</button>
   </div>
   )
