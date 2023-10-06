@@ -15,6 +15,8 @@ import log from 'electron-log';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
 
+import { executeSql } from './db/bettertest'
+
 class AppUpdater {
   constructor() {
     log.transports.file.level = 'info';
@@ -29,6 +31,14 @@ ipcMain.on('ipc-example', async (event, arg) => {
   const msgTemplate = (pingPong: string) => `IPC test: ${pingPong}`;
   console.log(msgTemplate(arg));
   event.reply('ipc-example', msgTemplate('pong'));
+});
+
+ipcMain.on('ipc-example2', async (event, arg) => {
+  console.log(arg);
+
+  executeSql();
+
+  event.returnValue = '';
 });
 
 if (process.env.NODE_ENV === 'production') {

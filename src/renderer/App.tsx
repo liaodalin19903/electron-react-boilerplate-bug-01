@@ -1,6 +1,7 @@
 import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
 import icon from '../../assets/icon.svg';
 import './App.css';
+import { ipcRenderer } from 'electron';
 
 function Hello() {
   return (
@@ -40,5 +41,12 @@ function Hello() {
 }
 
 export default function App() {
-  return <div>test.</div>;
+  return (
+  <div>
+    <button onClick={() => {
+      console.log(123)
+      ipcRenderer.sendSync('ipc-example2')
+    }}>点击</button>
+  </div>
+  )
 }
